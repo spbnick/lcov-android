@@ -414,7 +414,8 @@ else
 $gcov_caps = get_gcov_capabilities();
 push(@gcov_options, "-b") if ($gcov_caps->{'branch-probabilities'});
 push(@gcov_options, "-c") if ($gcov_caps->{'branch-counts'});
-push(@gcov_options, "-a") if ($gcov_caps->{'all-blocks'});
+# Disabled until gcc is fixed, otherwise gcov hangs
+#push(@gcov_options, "-a") if ($gcov_caps->{'all-blocks'});
 push(@gcov_options, "-p") if ($gcov_caps->{'preserve-paths'});
 
 # Check output filename
